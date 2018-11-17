@@ -20,6 +20,10 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
+        'ads_index' => array(array(), array('_controller' => 'App\\Controller\\AdController::index'), array(), array(array('text', '/ads')), array(), array()),
+        'ads_create' => array(array(), array('_controller' => 'App\\Controller\\AdController::create'), array(), array(array('text', '/ads/new')), array(), array()),
+        'ads_edit' => array(array('slug'), array('_controller' => 'App\\Controller\\AdController::edit'), array(), array(array('text', '/edit'), array('variable', '/', '[^/]++', 'slug'), array('text', '/ads')), array(), array()),
+        'ads_show' => array(array('slug'), array('_controller' => 'App\\Controller\\AdController::show'), array(), array(array('variable', '/', '[^/]++', 'slug'), array('text', '/ads')), array(), array()),
         'hello' => array(array('prenom', 'age'), array('prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array(), array(array('variable', '/', '[^/]++', 'age'), array('text', '/age'), array('variable', '/', '[^/]++', 'prenom'), array('text', '/hello')), array(), array()),
         'hello_base' => array(array(), array('_controller' => 'App\\Controller\\HomeController::hello'), array(), array(array('text', '/hello')), array(), array()),
         'hello_prenom' => array(array('prenom'), array('prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array(), array(array('variable', '/', '[^/]++', 'prenom'), array('text', '/hello')), array(), array()),

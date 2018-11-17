@@ -102,7 +102,7 @@ class __TwigTemplate_a0e4111eb45dd62beda14df1736c7525e0c673ae0b47118cffd39a2cb5e
           <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Voir nos annonces</a>
         </p>
   </div>
-  <h2 class=\"h1 mt-3 mb-4\">Nos appartements</h2>
+  <h2 class=\"h1 mt-3 mb-4\">Nos appartements stars</h2>
  
  <div class=\"row\">
     
@@ -176,7 +176,7 @@ class __TwigTemplate_a0e4111eb45dd62beda14df1736c7525e0c673ae0b47118cffd39a2cb5e
     <div class=\"col\">
       <div class=\"card border secondary mb-3\">
         <div class=\"card-body\">
-          <h4 class=\"card-title\">Dominique Bauvet</h4>
+          <h4 class=\"card-title\">Julien Goscicki</h4>
           <hr>
           <div class=\"card-text\">
           <img src=\"https://via.placeholder.com/64x64\" alt=\"Avatar de Julien\" class=\"float-left mr-3\">
@@ -239,7 +239,7 @@ class __TwigTemplate_a0e4111eb45dd62beda14df1736c7525e0c673ae0b47118cffd39a2cb5e
           <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Voir nos annonces</a>
         </p>
   </div>
-  <h2 class=\"h1 mt-3 mb-4\">Nos appartements</h2>
+  <h2 class=\"h1 mt-3 mb-4\">Nos appartements stars</h2>
  
  <div class=\"row\">
     
@@ -313,7 +313,7 @@ class __TwigTemplate_a0e4111eb45dd62beda14df1736c7525e0c673ae0b47118cffd39a2cb5e
     <div class=\"col\">
       <div class=\"card border secondary mb-3\">
         <div class=\"card-body\">
-          <h4 class=\"card-title\">Dominique Bauvet</h4>
+          <h4 class=\"card-title\">Julien Goscicki</h4>
           <hr>
           <div class=\"card-text\">
           <img src=\"https://via.placeholder.com/64x64\" alt=\"Avatar de Julien\" class=\"float-left mr-3\">

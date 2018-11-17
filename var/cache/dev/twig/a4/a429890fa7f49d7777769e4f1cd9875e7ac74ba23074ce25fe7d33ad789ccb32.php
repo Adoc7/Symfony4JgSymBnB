@@ -39,48 +39,32 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
         <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
+        <link rel=\"stylesheet\" href=\"/css/app.css\">
         ";
-        // line 7
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 8
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 9
         echo "    </head>
     <body>
-        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
-            <a class=\"navbar-brand\" href=\"";
-        // line 11
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
-        echo "\">SymBNB</a>
-            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor03\" aria-controls=\"navbarColor03\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-                <span class=\"navbar-toggler-icon\"></span>
-            </button>
-            <div class=\"collapse navbar-collapse\" id=\"navbarColor03\">
-                <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"";
-        // line 18
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
-        echo "\">Accueil</a>
-                    </li>
-                </ul>
-                <ul class=\"navbar-nav ml-auto \">
-                    <li class=\"nav-item\">
-                        <a href=\"\" class=\"nav-link\">Mon compte !</a>
-                    </li>
-                </ul>
-            </div>
-    </nav>
 
         ";
-        // line 29
+        // line 12
+        $this->loadTemplate("/partials/header.html.twig", "base.html.twig", 12)->display($context);
+        // line 13
+        echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 30
-        echo "        <script src=\"/js/jquery.min.js\"></script>
+        // line 14
+        echo "        ";
+        $this->loadTemplate("/partials/footer.html.twig", "base.html.twig", 14)->display($context);
+        // line 15
+        echo "
+        <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
         ";
-        // line 33
+        // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 34
+        // line 20
         echo "    </body>
 </html>
 ";
@@ -110,7 +94,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 7
+    // line 8
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -127,7 +111,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 29
+    // line 13
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -144,7 +128,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 33
+    // line 19
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -173,7 +157,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     public function getDebugInfo()
     {
-        return array (  148 => 33,  131 => 29,  114 => 7,  96 => 5,  84 => 34,  82 => 33,  77 => 30,  75 => 29,  61 => 18,  51 => 11,  46 => 8,  44 => 7,  39 => 5,  33 => 1,);
+        return array (  132 => 19,  115 => 13,  98 => 8,  80 => 5,  68 => 20,  66 => 19,  60 => 15,  57 => 14,  54 => 13,  52 => 12,  47 => 9,  45 => 8,  39 => 5,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -184,29 +168,15 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
         <meta charset=\"UTF-8\">
         <title>SymBNB - {% block title %}Welcome!{% endblock %}</title>
         <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
+        <link rel=\"stylesheet\" href=\"/css/app.css\">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
-            <a class=\"navbar-brand\" href=\"{{ path('homepage')}}\">SymBNB</a>
-            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor03\" aria-controls=\"navbarColor03\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-                <span class=\"navbar-toggler-icon\"></span>
-            </button>
-            <div class=\"collapse navbar-collapse\" id=\"navbarColor03\">
-                <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"{{ path('homepage')}}\">Accueil</a>
-                    </li>
-                </ul>
-                <ul class=\"navbar-nav ml-auto \">
-                    <li class=\"nav-item\">
-                        <a href=\"\" class=\"nav-link\">Mon compte !</a>
-                    </li>
-                </ul>
-            </div>
-    </nav>
 
+        {% include '/partials/header.html.twig' %}
         {% block body %}{% endblock %}
+        {% include '/partials/footer.html.twig' %}
+
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
