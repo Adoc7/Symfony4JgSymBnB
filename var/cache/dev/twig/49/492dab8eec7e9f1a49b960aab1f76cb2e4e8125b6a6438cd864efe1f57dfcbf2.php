@@ -59,11 +59,21 @@ class __TwigTemplate_6b884d75043a06866bbcfbb93d8735bc71503fbc3d4881260014b05bff7
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 13, $this->source); })()), "introduction", array()), "html", null, true);
         echo "</p>
-            <a href=\"";
+                <a href=\"";
         // line 14
         echo twig_escape_filter($this->env, (isset($context["url"]) || array_key_exists("url", $context) ? $context["url"] : (function () { throw new Twig_Error_Runtime('Variable "url" does not exist.', 14, $this->source); })()), "html", null, true);
         echo "\" class=\"btn btn-secondary\">En savoir plus</a>
-    </div>
+            ";
+        // line 15
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 15, $this->source); })()), "user", array()) && (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 15, $this->source); })()), "user", array()) == twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 15, $this->source); })()), "author", array())))) {
+            // line 16
+            echo "                <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ads_edit", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 16, $this->source); })()), "slug", array()))), "html", null, true);
+            echo "\" class=\"btn btn-secondary\">Modifier l'annonce</a>
+            ";
+        }
+        // line 18
+        echo "    </div>
 </div>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -85,7 +95,7 @@ class __TwigTemplate_6b884d75043a06866bbcfbb93d8735bc71503fbc3d4881260014b05bff7
 
     public function getDebugInfo()
     {
-        return array (  64 => 14,  60 => 13,  54 => 12,  48 => 9,  44 => 8,  36 => 5,  31 => 2,  29 => 1,);
+        return array (  76 => 18,  70 => 16,  68 => 15,  64 => 14,  60 => 13,  54 => 12,  48 => 9,  44 => 8,  36 => 5,  31 => 2,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -103,7 +113,10 @@ class __TwigTemplate_6b884d75043a06866bbcfbb93d8735bc71503fbc3d4881260014b05bff7
         <div class=\"card-body\"></div>
             <h4 class=\"card-title\"><a href=\"{{ url }}\">{{ad.title}}</a</h4>
             <p class=\"card-text\">{{ad.introduction}}</p>
-            <a href=\"{{ url }}\" class=\"btn btn-secondary\">En savoir plus</a>
+                <a href=\"{{ url }}\" class=\"btn btn-secondary\">En savoir plus</a>
+            {% if app.user and app.user == ad.author %}
+                <a href=\"{{ path('ads_edit',{'slug': ad.slug}) }}\" class=\"btn btn-secondary\">Modifier l'annonce</a>
+            {% endif %}
     </div>
 </div>", "ad/_ad.html.twig", "/var/www/html/symbnb/templates/ad/_ad.html.twig");
     }

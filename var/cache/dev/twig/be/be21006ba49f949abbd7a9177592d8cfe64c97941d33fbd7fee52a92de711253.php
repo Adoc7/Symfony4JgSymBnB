@@ -95,6 +95,27 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
         echo "&euro;</strong> par nuit
     </p>
     <a href=\"#\" class=\"btn btn-primary\">Réserver</a>
+
+    ";
+        // line 19
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 19, $this->source); })()), "user", array()) && (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 19, $this->source); })()), "user", array()) == twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 19, $this->source); })()), "author", array())))) {
+            // line 20
+            echo "    <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ads_edit", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 20, $this->source); })()), "slug", array()))), "html", null, true);
+            echo "\" class=\"btn btn-secondary\">Modifier l'annonce</a>
+    <a href=\"";
+            // line 21
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ads_delete", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 21, $this->source); })()), "slug", array()))), "html", null, true);
+            echo "\" class=\"btn btn-danger\"
+    onclick=\"return confirm(`Etes vous certains de vouloir supprimer l'annonce : ";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 22, $this->source); })()), "title", array()), "html", null, true);
+            echo " ?`)\">Supprimer l'annonce</a>
+    ";
+        }
+        // line 24
+        echo "
+
     </div>
 </div>
 
@@ -102,58 +123,12 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
     <div class=\"row\">
         <div class=\"col-md-8 mb-3\">
             ";
-        // line 24
-        echo twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 24, $this->source); })()), "content", array());
+        // line 32
+        echo twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 32, $this->source); })()), "content", array());
         echo "
 
             <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">
                 <ol class=\"carousel-indicators\">
-                    ";
-        // line 28
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 28, $this->source); })()), "images", array()));
-        $context['loop'] = array(
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        );
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-            // line 29
-            echo "                    <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index0", array()), "html", null, true);
-            echo "\" 
-                    ";
-            // line 30
-            if (twig_get_attribute($this->env, $this->source, $context["loop"], "first", array())) {
-                echo "class=\"active\"";
-            }
-            echo "></li>
-                    ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
-        echo "               
-                </ol>
-                <div class=\"carousel-inner\">
-                    
                     ";
         // line 36
         $context['_parent'] = $context;
@@ -173,24 +148,70 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
         }
         foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
             // line 37
+            echo "                    <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index0", array()), "html", null, true);
+            echo "\" 
+                    ";
+            // line 38
+            if (twig_get_attribute($this->env, $this->source, $context["loop"], "first", array())) {
+                echo "class=\"active\"";
+            }
+            echo "></li>
+                    ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 40
+        echo "               
+                </ol>
+                <div class=\"carousel-inner\">
+                    
+                    ";
+        // line 44
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 44, $this->source); })()), "images", array()));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
+            // line 45
             echo "
                     <div class=\"carousel-item ";
-            // line 38
+            // line 46
             if (twig_get_attribute($this->env, $this->source, $context["loop"], "first", array())) {
                 echo "active";
             }
             echo "\">
                     <img class=\"d-block w-100\" src=\"";
-            // line 39
+            // line 47
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["image"], "url", array()), "html", null, true);
             echo "\" alt=\"First slide\">
                         <div class=\"carousel-caption d-none d-md-block\">
                             <h5>";
-            // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 41, $this->source); })()), "title", array()), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 49, $this->source); })()), "title", array()), "html", null, true);
             echo "</h5>
                             <p>";
-            // line 42
+            // line 50
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["image"], "caption", array()), "html", null, true);
             echo "</p>
                         </div>                 
@@ -208,7 +229,7 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 54
         echo "                </div>
                 <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">
                     <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
@@ -223,44 +244,44 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
         </div>
         <div class=\"col\">
             ";
-        // line 59
-        $context["a"] = twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 59, $this->source); })()), "author", array());
-        // line 60
+        // line 67
+        $context["a"] = twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 67, $this->source); })()), "author", array());
+        // line 68
         echo "            <div class=\"row\">
                 <div class=\"col-3\">
                     <a href=\"";
-        // line 62
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_show", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 62, $this->source); })()), "slug", array()))), "html", null, true);
+        // line 70
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_show", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 70, $this->source); })()), "slug", array()))), "html", null, true);
         echo "\">
                         <img src=\"";
-        // line 63
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 63, $this->source); })()), "picture", array()), "html", null, true);
+        // line 71
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 71, $this->source); })()), "picture", array()), "html", null, true);
         echo "\" class=\"avatar avatar-medium\" alt=\"Avatar de ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 63, $this->source); })()), "fullName", array()), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 71, $this->source); })()), "fullName", array()), "html", null, true);
         echo "\">
                     </a>
                 </div>
                 <div class=\"col\">
 
                 <a href=\"";
-        // line 68
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_show", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 68, $this->source); })()), "slug", array()))), "html", null, true);
+        // line 76
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_show", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 76, $this->source); })()), "slug", array()))), "html", null, true);
         echo "\">
                     <h3>";
-        // line 69
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 69, $this->source); })()), "fullName", array()), "html", null, true);
+        // line 77
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 77, $this->source); })()), "fullName", array()), "html", null, true);
         echo "</h3>
                 </a>
                 
                 <span class=\"badge badge-primary\">";
-        // line 72
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 72, $this->source); })()), "ads", array())), "html", null, true);
+        // line 80
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 80, $this->source); })()), "ads", array())), "html", null, true);
         echo " annonces</span> 
                 </div>
             </div>
             ";
-        // line 75
-        echo twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 75, $this->source); })()), "description", array());
+        // line 83
+        echo twig_get_attribute($this->env, $this->source, (isset($context["a"]) || array_key_exists("a", $context) ? $context["a"] : (function () { throw new Twig_Error_Runtime('Variable "a" does not exist.', 83, $this->source); })()), "description", array());
         echo "
         </div>
     </div>
@@ -288,7 +309,7 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
 
     public function getDebugInfo()
     {
-        return array (  263 => 75,  257 => 72,  251 => 69,  247 => 68,  237 => 63,  233 => 62,  229 => 60,  227 => 59,  212 => 46,  194 => 42,  190 => 41,  185 => 39,  179 => 38,  176 => 37,  159 => 36,  153 => 32,  135 => 30,  130 => 29,  113 => 28,  106 => 24,  92 => 15,  87 => 13,  83 => 12,  78 => 10,  75 => 9,  66 => 8,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  284 => 83,  278 => 80,  272 => 77,  268 => 76,  258 => 71,  254 => 70,  250 => 68,  248 => 67,  233 => 54,  215 => 50,  211 => 49,  206 => 47,  200 => 46,  197 => 45,  180 => 44,  174 => 40,  156 => 38,  151 => 37,  134 => 36,  127 => 32,  117 => 24,  112 => 22,  108 => 21,  103 => 20,  101 => 19,  92 => 15,  87 => 13,  83 => 12,  78 => 10,  75 => 9,  66 => 8,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -310,6 +331,14 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
     <strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price}}&euro;</strong> par nuit
     </p>
     <a href=\"#\" class=\"btn btn-primary\">Réserver</a>
+
+    {% if app.user and app.user == ad.author %}
+    <a href=\"{{ path('ads_edit',  {'slug': ad.slug}) }}\" class=\"btn btn-secondary\">Modifier l'annonce</a>
+    <a href=\"{{ path('ads_delete',{'slug': ad.slug}) }}\" class=\"btn btn-danger\"
+    onclick=\"return confirm(`Etes vous certains de vouloir supprimer l'annonce : {{ad.title}} ?`)\">Supprimer l'annonce</a>
+    {% endif %}
+
+
     </div>
 </div>
 

@@ -441,6 +441,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\RoleRepository" class="App\Repository\RoleRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -2704,7 +2708,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.o_5mDXA"/>
+      <argument type="service" id=".service_locator.RzrWpAe"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4376,6 +4380,8 @@
     <service id=".abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PasswordUpdateRepository" class="App\Repository\PasswordUpdateRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\PasswordUpdateRepository" class="App\Repository\PasswordUpdateRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RoleRepository" class="App\Repository\RoleRepository" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RoleRepository" class="App\Repository\RoleRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
@@ -4566,7 +4572,7 @@
         <argument key="user" type="service" id=".errored..service_locator.iuuVGtK.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.uzWVlrc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.73p3DzM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccountController::login" type="service" id=".service_locator.xJ_gBvk"/>
@@ -4574,6 +4580,7 @@
         <argument key="App\Controller\AccountController::register" type="service" id=".service_locator.t7BdSgs"/>
         <argument key="App\Controller\AccountController::updatePassword" type="service" id=".service_locator.t7BdSgs"/>
         <argument key="App\Controller\AdController::create" type="service" id=".service_locator.OLaif_L"/>
+        <argument key="App\Controller\AdController::delete" type="service" id=".service_locator.A1S0c55"/>
         <argument key="App\Controller\AdController::edit" type="service" id=".service_locator.A1S0c55"/>
         <argument key="App\Controller\AdController::index" type="service" id=".service_locator.m1RiI2J"/>
         <argument key="App\Controller\AdController::show" type="service" id=".service_locator.fBcpXpI"/>
@@ -4583,6 +4590,7 @@
         <argument key="App\Controller\AccountController:register" type="service" id=".service_locator.t7BdSgs"/>
         <argument key="App\Controller\AccountController:updatePassword" type="service" id=".service_locator.t7BdSgs"/>
         <argument key="App\Controller\AdController:create" type="service" id=".service_locator.OLaif_L"/>
+        <argument key="App\Controller\AdController:delete" type="service" id=".service_locator.A1S0c55"/>
         <argument key="App\Controller\AdController:edit" type="service" id=".service_locator.A1S0c55"/>
         <argument key="App\Controller\AdController:index" type="service" id=".service_locator.m1RiI2J"/>
         <argument key="App\Controller\AdController:show" type="service" id=".service_locator.fBcpXpI"/>
@@ -4660,12 +4668,13 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id=".service_locator.o_5mDXA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.RzrWpAe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AdRepository" type="service" id="App\Repository\AdRepository"/>
         <argument key="App\Repository\ImageRepository" type="service" id="App\Repository\ImageRepository"/>
         <argument key="App\Repository\PasswordUpdateRepository" type="service" id="App\Repository\PasswordUpdateRepository"/>
+        <argument key="App\Repository\RoleRepository" type="service" id="App\Repository\RoleRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -4834,7 +4843,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.uzWVlrc"/>
+      <argument type="service" id=".service_locator.73p3DzM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -5247,7 +5256,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.uzWVlrc"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.73p3DzM"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~1EBRyOs" public="false"/>

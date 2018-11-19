@@ -105,28 +105,31 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $regexList = array(
             0 => '{^(?'
                     .'|/ads/([^/]++)(?'
-                        .'|/edit(*:28)'
-                        .'|(*:35)'
+                        .'|/(?'
+                            .'|edit(*:31)'
+                            .'|delete(*:44)'
+                        .')'
+                        .'|(*:52)'
                     .')'
                     .'|/hello(?'
-                        .'|/([^/]++)/age(?:/([^/]++))?(*:79)'
-                        .'|(?:/([^/]++))?(*:100)'
-                        .'|(?:/([^/]++)(?:/([^/]++))?)?(*:136)'
+                        .'|/([^/]++)/age(?:/([^/]++))?(*:96)'
+                        .'|(?:/([^/]++))?(*:117)'
+                        .'|(?:/([^/]++)(?:/([^/]++))?)?(*:153)'
                     .')'
-                    .'|/user/([^/]++)(*:159)'
+                    .'|/user/([^/]++)(*:176)'
                     .'|/_(?'
-                        .'|error/(\\d+)(?:\\.([^/]++))?(*:198)'
-                        .'|wdt/([^/]++)(*:218)'
+                        .'|error/(\\d+)(?:\\.([^/]++))?(*:215)'
+                        .'|wdt/([^/]++)(*:235)'
                         .'|profiler/([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:264)'
-                                .'|router(*:278)'
+                                .'|search/results(*:281)'
+                                .'|router(*:295)'
                                 .'|exception(?'
-                                    .'|(*:298)'
-                                    .'|\\.css(*:311)'
+                                    .'|(*:315)'
+                                    .'|\\.css(*:328)'
                                 .')'
                             .')'
-                            .'|(*:321)'
+                            .'|(*:338)'
                         .')'
                     .')'
                 .')$}sD',
@@ -137,19 +140,20 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 switch ($m = (int) $matches['MARK']) {
                     default:
                         $routes = array(
-                            28 => array(array('_route' => 'ads_edit', '_controller' => 'App\\Controller\\AdController::edit'), array('slug'), null, null),
-                            35 => array(array('_route' => 'ads_show', '_controller' => 'App\\Controller\\AdController::show'), array('slug'), null, null),
-                            79 => array(array('_route' => 'hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
-                            100 => array(array('_route' => 'hello_prenom', 'prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom'), null, null),
-                            136 => array(array('_route' => 'app_home_hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
-                            159 => array(array('_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::index'), array('slug'), null, null),
-                            198 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
-                            218 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
-                            264 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
-                            278 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
-                            298 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
-                            311 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
-                            321 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
+                            31 => array(array('_route' => 'ads_edit', '_controller' => 'App\\Controller\\AdController::edit'), array('slug'), null, null),
+                            44 => array(array('_route' => 'ads_delete', '_controller' => 'App\\Controller\\AdController::delete'), array('slug'), null, null),
+                            52 => array(array('_route' => 'ads_show', '_controller' => 'App\\Controller\\AdController::show'), array('slug'), null, null),
+                            96 => array(array('_route' => 'hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
+                            117 => array(array('_route' => 'hello_prenom', 'prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom'), null, null),
+                            153 => array(array('_route' => 'app_home_hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
+                            176 => array(array('_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::index'), array('slug'), null, null),
+                            215 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
+                            235 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
+                            281 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
+                            295 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
+                            315 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
+                            328 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
+                            338 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -175,7 +179,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (321 === $m) {
+                if (338 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));
