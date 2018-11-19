@@ -35,7 +35,7 @@ class AdController extends AbstractController
         ]);
     }
 
-       // Param Converter
+    // Param Converter
 
     /**
      * Permet de créer une annonce
@@ -47,28 +47,23 @@ class AdController extends AbstractController
     public function create(Request $request, ObjectManager $manager){
         $ad = new Ad();
 
-   
         $form = $this->createForm(AnType::class, $ad);
-
-        $form->handleRequest($request);
-        
+        $form->handleRequest($request);  
+            dump($ad);  
 
         if($form->isSubmitted() && $form->isValid()){
-
             foreach($ad->getImages() as $image){
                 $image->setAd($ad);
                 $manager->persist($image);
             }
 
+            $ad->setAuthor($this->getUser());
             $manager->persist($ad);
             $manager->flush();
-
             $this->addFlash(
                 'success',
                 "L'annonce  <strong> {$ad->getTitle()} </strong> a bien été enregistrée"
             );
-           
-
             return $this->redirectToRoute('ads_show', [
                 'slug' =>$ad->getSlug()
             ]);
@@ -108,21 +103,15 @@ class AdController extends AbstractController
                 "Les modifications de l'annonce  <strong> {$ad->getTitle()} </strong> ont bien été enregistrées"
             );
            
-
             return $this->redirectToRoute('ads_show', [
                 'slug' =>$ad->getSlug()
             ]);
         }
-
-
-
         return $this->render('ad/edit.html.twig',[
             'form' => $form->createView(),
             'ad' =>$ad
         ]);
     }
-
-
     /**
      * Permet d'afficher une seule annonce
      *

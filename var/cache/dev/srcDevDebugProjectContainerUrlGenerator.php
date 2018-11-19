@@ -20,6 +20,12 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
+        'account_login' => array(array(), array('_controller' => 'App\\Controller\\AccountController::login'), array(), array(array('text', '/login')), array(), array()),
+        'account_logout' => array(array(), array('_controller' => 'App\\Controller\\AccountController::logout'), array(), array(array('text', '/logout')), array(), array()),
+        'account_register' => array(array(), array('_controller' => 'App\\Controller\\AccountController::register'), array(), array(array('text', '/register')), array(), array()),
+        'account_profile' => array(array(), array('_controller' => 'App\\Controller\\AccountController::profile'), array(), array(array('text', '/account/profile')), array(), array()),
+        'account_password' => array(array(), array('_controller' => 'App\\Controller\\AccountController::updatePassword'), array(), array(array('text', '/account/password-update')), array(), array()),
+        'account_index' => array(array(), array('_controller' => 'App\\Controller\\AccountController::myAccount'), array(), array(array('text', '/account')), array(), array()),
         'ads_index' => array(array(), array('_controller' => 'App\\Controller\\AdController::index'), array(), array(array('text', '/ads')), array(), array()),
         'ads_create' => array(array(), array('_controller' => 'App\\Controller\\AdController::create'), array(), array(array('text', '/ads/new')), array(), array()),
         'ads_edit' => array(array('slug'), array('_controller' => 'App\\Controller\\AdController::edit'), array(), array(array('text', '/edit'), array('variable', '/', '[^/]++', 'slug'), array('text', '/ads')), array(), array()),
@@ -29,6 +35,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'hello_prenom' => array(array('prenom'), array('prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array(), array(array('variable', '/', '[^/]++', 'prenom'), array('text', '/hello')), array(), array()),
         'app_home_hello' => array(array('prenom', 'age'), array('prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array(), array(array('variable', '/', '[^/]++', 'age'), array('variable', '/', '[^/]++', 'prenom'), array('text', '/hello')), array(), array()),
         'homepage' => array(array(), array('_controller' => 'App\\Controller\\HomeController::home'), array(), array(array('text', '/')), array(), array()),
+        'user_show' => array(array('slug'), array('_controller' => 'App\\Controller\\UserController::index'), array(), array(array('variable', '/', '[^/]++', 'slug'), array('text', '/user')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
         '_wdt' => array(array('token'), array('_controller' => 'web_profiler.controller.profiler::toolbarAction'), array(), array(array('variable', '/', '[^/]++', 'token'), array('text', '/_wdt')), array(), array()),
         '_profiler_home' => array(array(), array('_controller' => 'web_profiler.controller.profiler::homeAction'), array(), array(array('text', '/_profiler/')), array(), array()),
