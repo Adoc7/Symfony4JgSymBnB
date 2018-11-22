@@ -81,13 +81,20 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
             // line 28
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_index");
             echo "\" class=\"dropdown-item\">Mon compte</a>
+
                             <a href=\"";
-            // line 29
+            // line 30
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_bookings");
+            echo "\" class=\"dropdown-item\">Mes réservations</a>
+
+
+                            <a href=\"";
+            // line 33
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_profile");
             echo "\" class=\"dropdown-item\">Modifier mon profil</a>
                             <div class=\"dropdown-divider\"></div>
                             <a href=\"";
-            // line 31
+            // line 35
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_logout");
             echo "\" class=\"dropdown-item\">Deconnexion</a>
 
@@ -97,43 +104,43 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
 
                     ";
         } else {
-            // line 38
+            // line 42
             echo "                    <li class=\"nav-item\">
                         <a href=\"";
-            // line 39
+            // line 43
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_register");
             echo "\" class=\"nav-link\">Inscription</a>
                     </li>
                     <li class=\"nav-item\">
                         <a href=\"";
-            // line 42
+            // line 46
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_login");
             echo "\" class=\"nav-link\">Connexion</a>
                     </li>
                     ";
         }
-        // line 45
+        // line 49
         echo "                </ul>
             </div>
 </nav>
 
 ";
-        // line 49
+        // line 53
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 49, $this->source); })()), "flashes", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 53, $this->source); })()), "flashes", array()));
         foreach ($context['_seq'] as $context["label"] => $context["messages"]) {
-            // line 50
+            // line 54
             echo "    <div class=\"container\">
         <div class=\"alert alert-";
-            // line 51
+            // line 55
             echo twig_escape_filter($this->env, $context["label"], "html", null, true);
             echo "\">
             ";
-            // line 52
+            // line 56
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($context["messages"]);
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 53
+                // line 57
                 echo "                <p>";
                 echo $context["message"];
                 echo "</p>
@@ -142,7 +149,7 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 55
+            // line 59
             echo "
         </div>
    </div>
@@ -171,7 +178,7 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
 
     public function getDebugInfo()
     {
-        return array (  146 => 55,  137 => 53,  133 => 52,  129 => 51,  126 => 50,  122 => 49,  116 => 45,  110 => 42,  104 => 39,  101 => 38,  91 => 31,  86 => 29,  82 => 28,  75 => 24,  69 => 21,  65 => 20,  61 => 19,  57 => 17,  55 => 16,  48 => 12,  42 => 9,  32 => 2,  29 => 1,);
+        return array (  153 => 59,  144 => 57,  140 => 56,  136 => 55,  133 => 54,  129 => 53,  123 => 49,  117 => 46,  111 => 43,  108 => 42,  98 => 35,  93 => 33,  87 => 30,  82 => 28,  75 => 24,  69 => 21,  65 => 20,  61 => 19,  57 => 17,  55 => 16,  48 => 12,  42 => 9,  32 => 2,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -204,6 +211,10 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
 
 
                             <a href=\"{{ path('account_index') }}\" class=\"dropdown-item\">Mon compte</a>
+
+                            <a href=\"{{ path('account_bookings') }}\" class=\"dropdown-item\">Mes réservations</a>
+
+
                             <a href=\"{{ path('account_profile') }}\" class=\"dropdown-item\">Modifier mon profil</a>
                             <div class=\"dropdown-divider\"></div>
                             <a href=\"{{ path('account_logout') }}\" class=\"dropdown-item\">Deconnexion</a>

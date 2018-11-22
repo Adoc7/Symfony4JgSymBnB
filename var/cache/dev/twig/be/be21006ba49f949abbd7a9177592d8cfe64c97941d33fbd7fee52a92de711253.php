@@ -94,7 +94,10 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 15, $this->source); })()), "price", array()), "html", null, true);
         echo "&euro;</strong> par nuit
     </p>
-    <a href=\"#\" class=\"btn btn-primary\">Réserver</a>
+    <a href=\"";
+        // line 17
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("booking_create", array("slug" => twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 17, $this->source); })()), "slug", array()))), "html", null, true);
+        echo "\" class=\"btn btn-primary\">Réserver</a>
 
     ";
         // line 19
@@ -309,7 +312,7 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
 
     public function getDebugInfo()
     {
-        return array (  284 => 83,  278 => 80,  272 => 77,  268 => 76,  258 => 71,  254 => 70,  250 => 68,  248 => 67,  233 => 54,  215 => 50,  211 => 49,  206 => 47,  200 => 46,  197 => 45,  180 => 44,  174 => 40,  156 => 38,  151 => 37,  134 => 36,  127 => 32,  117 => 24,  112 => 22,  108 => 21,  103 => 20,  101 => 19,  92 => 15,  87 => 13,  83 => 12,  78 => 10,  75 => 9,  66 => 8,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  287 => 83,  281 => 80,  275 => 77,  271 => 76,  261 => 71,  257 => 70,  253 => 68,  251 => 67,  236 => 54,  218 => 50,  214 => 49,  209 => 47,  203 => 46,  200 => 45,  183 => 44,  177 => 40,  159 => 38,  154 => 37,  137 => 36,  130 => 32,  120 => 24,  115 => 22,  111 => 21,  106 => 20,  104 => 19,  99 => 17,  92 => 15,  87 => 13,  83 => 12,  78 => 10,  75 => 9,  66 => 8,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -330,7 +333,7 @@ class __TwigTemplate_e5e712b25a9358fe635848803daa6a1f446b18f6512da27c8bd713eb8ee
     <p class=\"h2\">
     <strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price}}&euro;</strong> par nuit
     </p>
-    <a href=\"#\" class=\"btn btn-primary\">Réserver</a>
+    <a href=\"{{ path(\"booking_create\", {'slug': ad.slug}) }}\" class=\"btn btn-primary\">Réserver</a>
 
     {% if app.user and app.user == ad.author %}
     <a href=\"{{ path('ads_edit',  {'slug': ad.slug}) }}\" class=\"btn btn-secondary\">Modifier l'annonce</a>

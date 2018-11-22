@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -78,10 +78,22 @@ class Ad
      */
     private $author;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="ad")
+     */
+    private $bookings;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
+
+
+
+
+
+    
 
  
     public function getId(): ?int
@@ -232,5 +244,60 @@ class Ad
             $slugify = new Slugify();
             $this->slug = $slugify->slugify($this->title);
         }
+    }
+
+    /**
+     * 
+     * Permet d'obtenir un tableau des jours qui ne sont pas disponibles pour cette annonce
+     *
+     * @return array Un tableau d'objets DateTime représentant les jours d'occupation
+     */
+    public function getNotAvailableDays(){
+        $notAvailableDays = [];
+        foreach($this->bookings as $booking){
+            // Calculer les jours qui se trouvent entre la date d'arrivée et de départ
+            $resultat = range(
+                $booking->getStartDate()->getTimestamp(),
+                $booking->getEndDate()  ->getTimestamp(),
+                24 * 60 * 60      
+        );
+        $days = array_map(function($dayTimestamp){
+            return new \DateTime(date('Y-m-d', $dayTimestamp));
+        }, $resultat);
+
+        $notAvailableDays = array_merge($notAvailableDays, $days);
+        }
+        return $notAvailableDays;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setAd($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->contains($booking)) {
+            $this->bookings->removeElement($booking);
+            // set the owning side to null (unless already changed)
+            if ($booking->getAd() === $this) {
+                $booking->setAd(null);
+            }
+        }
+
+        return $this;
     }
 }
