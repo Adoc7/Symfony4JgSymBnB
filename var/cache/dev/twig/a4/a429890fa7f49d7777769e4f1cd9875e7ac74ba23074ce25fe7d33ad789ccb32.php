@@ -38,33 +38,38 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        
+
+        <meta name=\"viewport\" content=\"width=device-width, user-scalable=no\">
+
         <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
+        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\" crossorigin=\"anonymous\">
         <link rel=\"stylesheet\" href=\"/css/app.css\">
         ";
-        // line 8
+        // line 13
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 9
+        // line 14
         echo "    </head>
     <body>
 
         ";
-        // line 12
-        $this->loadTemplate("/partials/header.html.twig", "base.html.twig", 12)->display($context);
-        // line 13
+        // line 17
+        $this->loadTemplate("/partials/header.html.twig", "base.html.twig", 17)->display($context);
+        // line 18
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 14
+        // line 19
         echo "        ";
-        $this->loadTemplate("/partials/footer.html.twig", "base.html.twig", 14)->display($context);
-        // line 15
+        $this->loadTemplate("/partials/footer.html.twig", "base.html.twig", 19)->display($context);
+        // line 20
         echo "
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
         ";
-        // line 19
+        // line 24
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 20
+        // line 25
         echo "    </body>
 </html>
 ";
@@ -94,7 +99,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 8
+    // line 13
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -111,7 +116,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 13
+    // line 18
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -128,7 +133,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 19
+    // line 24
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -157,7 +162,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     public function getDebugInfo()
     {
-        return array (  132 => 19,  115 => 13,  98 => 8,  80 => 5,  68 => 20,  66 => 19,  60 => 15,  57 => 14,  54 => 13,  52 => 12,  47 => 9,  45 => 8,  39 => 5,  33 => 1,);
+        return array (  137 => 24,  120 => 18,  103 => 13,  85 => 5,  73 => 25,  71 => 24,  65 => 20,  62 => 19,  59 => 18,  57 => 17,  52 => 14,  50 => 13,  39 => 5,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -167,7 +172,12 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
     <head>
         <meta charset=\"UTF-8\">
         <title>SymBNB - {% block title %}Welcome!{% endblock %}</title>
+        
+
+        <meta name=\"viewport\" content=\"width=device-width, user-scalable=no\">
+
         <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
+        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\" crossorigin=\"anonymous\">
         <link rel=\"stylesheet\" href=\"/css/app.css\">
         {% block stylesheets %}{% endblock %}
     </head>

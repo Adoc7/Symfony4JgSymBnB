@@ -73,6 +73,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/account/bookings' => array(array('_route' => 'account_bookings', '_controller' => 'App\\Controller\\AccountController::bookings'), null, null, null),
                     '/ads' => array(array('_route' => 'ads_index', '_controller' => 'App\\Controller\\AdController::index'), null, null, null),
                     '/ads/new' => array(array('_route' => 'ads_create', '_controller' => 'App\\Controller\\AdController::create'), null, null, null),
+                    '/admin/login' => array(array('_route' => 'admin_account_login', '_controller' => 'App\\Controller\\AdminAccountController::login'), null, null, null),
+                    '/admin/logout' => array(array('_route' => 'admin_account_logout', '_controller' => 'App\\Controller\\AdminAccountController::logout'), null, null, null),
+                    '/admin/ads' => array(array('_route' => 'admin_ads_index', '_controller' => 'App\\Controller\\AdminAdController::index'), null, null, null),
+                    '/admin/bookings' => array(array('_route' => 'admin_booking_index', '_controller' => 'App\\Controller\\AdminBookingController::index'), null, null, null),
+                    '/admin/comments' => array(array('_route' => 'admin_comment_index', '_controller' => 'App\\Controller\\AdminCommentController::index'), null, null, null),
                     '/hello' => array(array('_route' => 'hello_base', '_controller' => 'App\\Controller\\HomeController::hello'), null, null, null),
                     '/' => array(array('_route' => 'homepage', '_controller' => 'App\\Controller\\HomeController::home'), null, null, null),
                     '/_profiler/' => array(array('_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'), null, null, null),
@@ -105,34 +110,47 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $matchedPathinfo = $pathinfo;
         $regexList = array(
             0 => '{^(?'
-                    .'|/ads/([^/]++)(?'
-                        .'|/(?'
-                            .'|edit(*:31)'
-                            .'|delete(*:44)'
-                            .'|book(*:55)'
+                    .'|/ad(?'
+                        .'|s/([^/]++)(?'
+                            .'|/(?'
+                                .'|edit(*:34)'
+                                .'|delete(*:47)'
+                                .'|book(*:58)'
+                            .')'
+                            .'|(*:66)'
                         .')'
-                        .'|(*:63)'
+                        .'|min/(?'
+                            .'|ads/([^/]++)/(?'
+                                .'|edit(*:101)'
+                                .'|deete(*:114)'
+                            .')'
+                            .'|bookings/([^/]++)/edit(*:145)'
+                            .'|comments/([^/]++)/(?'
+                                .'|edit(*:178)'
+                                .'|delete(*:192)'
+                            .')'
+                        .')'
                     .')'
-                    .'|/booking/([^/]++)(*:88)'
+                    .'|/booking/([^/]++)(*:220)'
                     .'|/hello(?'
-                        .'|/([^/]++)/age(?:/([^/]++))?(*:131)'
-                        .'|(?:/([^/]++))?(*:153)'
-                        .'|(?:/([^/]++)(?:/([^/]++))?)?(*:189)'
+                        .'|/([^/]++)/age(?:/([^/]++))?(*:264)'
+                        .'|(?:/([^/]++))?(*:286)'
+                        .'|(?:/([^/]++)(?:/([^/]++))?)?(*:322)'
                     .')'
-                    .'|/user/([^/]++)(*:212)'
+                    .'|/user/([^/]++)(*:345)'
                     .'|/_(?'
-                        .'|error/(\\d+)(?:\\.([^/]++))?(*:251)'
-                        .'|wdt/([^/]++)(*:271)'
+                        .'|error/(\\d+)(?:\\.([^/]++))?(*:384)'
+                        .'|wdt/([^/]++)(*:404)'
                         .'|profiler/([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:317)'
-                                .'|router(*:331)'
+                                .'|search/results(*:450)'
+                                .'|router(*:464)'
                                 .'|exception(?'
-                                    .'|(*:351)'
-                                    .'|\\.css(*:364)'
+                                    .'|(*:484)'
+                                    .'|\\.css(*:497)'
                                 .')'
                             .')'
-                            .'|(*:374)'
+                            .'|(*:507)'
                         .')'
                     .')'
                 .')$}sD',
@@ -143,22 +161,27 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 switch ($m = (int) $matches['MARK']) {
                     default:
                         $routes = array(
-                            31 => array(array('_route' => 'ads_edit', '_controller' => 'App\\Controller\\AdController::edit'), array('slug'), null, null),
-                            44 => array(array('_route' => 'ads_delete', '_controller' => 'App\\Controller\\AdController::delete'), array('slug'), null, null),
-                            55 => array(array('_route' => 'booking_create', '_controller' => 'App\\Controller\\BookingController::book'), array('slug'), null, null),
-                            63 => array(array('_route' => 'ads_show', '_controller' => 'App\\Controller\\AdController::show'), array('slug'), null, null),
-                            88 => array(array('_route' => 'booking_show', '_controller' => 'App\\Controller\\BookingController::show'), array('id'), null, null),
-                            131 => array(array('_route' => 'hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
-                            153 => array(array('_route' => 'hello_prenom', 'prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom'), null, null),
-                            189 => array(array('_route' => 'app_home_hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
-                            212 => array(array('_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::index'), array('slug'), null, null),
-                            251 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
-                            271 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
-                            317 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
-                            331 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
-                            351 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
-                            364 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
-                            374 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
+                            34 => array(array('_route' => 'ads_edit', '_controller' => 'App\\Controller\\AdController::edit'), array('slug'), null, null),
+                            47 => array(array('_route' => 'ads_delete', '_controller' => 'App\\Controller\\AdController::delete'), array('slug'), null, null),
+                            58 => array(array('_route' => 'booking_create', '_controller' => 'App\\Controller\\BookingController::book'), array('slug'), null, null),
+                            66 => array(array('_route' => 'ads_show', '_controller' => 'App\\Controller\\AdController::show'), array('slug'), null, null),
+                            101 => array(array('_route' => 'admin_ads_edit', '_controller' => 'App\\Controller\\AdminAdController::edit'), array('id'), null, null),
+                            114 => array(array('_route' => 'admin_ads_delete', '_controller' => 'App\\Controller\\AdminAdController::delete'), array('id'), null, null),
+                            145 => array(array('_route' => 'admin_booking_edit', '_controller' => 'App\\Controller\\AdminBookingController::edit'), array('id'), null, null),
+                            178 => array(array('_route' => 'admin_comment_edit', '_controller' => 'App\\Controller\\AdminCommentController::edit'), array('id'), null, null),
+                            192 => array(array('_route' => 'admin_comment_delete', '_controller' => 'App\\Controller\\AdminCommentController::delete'), array('id'), null, null),
+                            220 => array(array('_route' => 'booking_show', '_controller' => 'App\\Controller\\BookingController::show'), array('id'), null, null),
+                            264 => array(array('_route' => 'hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
+                            286 => array(array('_route' => 'hello_prenom', 'prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom'), null, null),
+                            322 => array(array('_route' => 'app_home_hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
+                            345 => array(array('_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::index'), array('slug'), null, null),
+                            384 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
+                            404 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
+                            450 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
+                            464 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
+                            484 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
+                            497 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
+                            507 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -184,7 +207,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (374 === $m) {
+                if (507 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

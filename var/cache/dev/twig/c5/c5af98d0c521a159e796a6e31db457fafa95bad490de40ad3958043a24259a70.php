@@ -1,6 +1,6 @@
 <?php
 
-/* /partials/header.html.twig */
+/* partials/header.html.twig */
 class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f0216e5b6 extends Twig_Template
 {
     private $source;
@@ -20,10 +20,10 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
     protected function doDisplay(array $context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "/partials/header.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "partials/header.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "/partials/header.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "partials/header.html.twig"));
 
         // line 1
         echo "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
@@ -95,7 +95,7 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
                             <div class=\"dropdown-divider\"></div>
                             <a href=\"";
             // line 35
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("account_logout");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_account_logout");
             echo "\" class=\"dropdown-item\">Deconnexion</a>
 
                       
@@ -168,7 +168,7 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
 
     public function getTemplateName()
     {
-        return "/partials/header.html.twig";
+        return "partials/header.html.twig";
     }
 
     public function isTraitable()
@@ -217,7 +217,7 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
 
                             <a href=\"{{ path('account_profile') }}\" class=\"dropdown-item\">Modifier mon profil</a>
                             <div class=\"dropdown-divider\"></div>
-                            <a href=\"{{ path('account_logout') }}\" class=\"dropdown-item\">Deconnexion</a>
+                            <a href=\"{{ path('admin_account_logout') }}\" class=\"dropdown-item\">Deconnexion</a>
 
                       
                         </div>
@@ -244,6 +244,6 @@ class __TwigTemplate_45c4b0955e1187b2e0a0a837de0f0b14c835b02678bc7a90e730484f021
 
         </div>
    </div>
-{% endfor %}", "/partials/header.html.twig", "/var/www/html/symbnb/templates/partials/header.html.twig");
+{% endfor %}", "partials/header.html.twig", "/var/www/html/symbnb/templates/partials/header.html.twig");
     }
 }

@@ -94,10 +94,10 @@ class __TwigTemplate_2236473361ef755a59839c0afeb67f2f43e2d1d84ec21cf9ec6ed4ff8ad
 
         // line 10
         echo "    <div class=\"container\">
-        <h1>Réserver pour l'annonce : ";
+        <h1>Réserver pour l'annonce : <em>";
         // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 11, $this->source); })()), "title", array()), "html", null, true);
-        echo "</h1>
+        echo "</em></h1>
         <p>Vous êtes sur le point de réserver le bien de 
         <strong>";
         // line 13
@@ -110,7 +110,7 @@ class __TwigTemplate_2236473361ef755a59839c0afeb67f2f43e2d1d84ec21cf9ec6ed4ff8ad
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 16, $this->source); })()), 'form_start');
         echo "
         <div class=\"alert alert-light\">
-            <h2>Commencez par nous dire quelles sont les dates qui vous intéressent</h2>
+            <h4>Commencez par nous dire quelles sont les dates qui vous intéressent</h2>
             <div class=\"row\">
             <div class=\"col\">
                 ";
@@ -125,11 +125,11 @@ class __TwigTemplate_2236473361ef755a59839c0afeb67f2f43e2d1d84ec21cf9ec6ed4ff8ad
         echo "
             </div>
         </div>
-    <h4>Montant du séjour : <span id=\"amount\">...</span> &euro;</h4>
+    <h4 class=\"mt-2\">Montant du séjour : <span id=\"amount\">...</span> &euro;</h4>
     <span id=\"days\">0</span> nuit(s) à ";
         // line 28
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 28, $this->source); })()), "price", array()), "html", null, true);
-        echo " &euro;/ nuit
+        echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["ad"]) || array_key_exists("ad", $context) ? $context["ad"] : (function () { throw new Twig_Error_Runtime('Variable "ad" does not exist.', 28, $this->source); })()), "price", array()), 2, ",", " "), "html", null, true);
+        echo " &euro; par nuit
 
     <h4 class=\"mt-3\">Vous avez un commentaire ?</h4>
     ";
@@ -256,14 +256,14 @@ function calculateAmount(){
 
 {% block body %}
     <div class=\"container\">
-        <h1>Réserver pour l'annonce : {{ ad.title }}</h1>
+        <h1>Réserver pour l'annonce : <em>{{ ad.title }}</em></h1>
         <p>Vous êtes sur le point de réserver le bien de 
         <strong>{{ ad.author.fullname }}</strong>,
         dites nous tout on s'occupe du reste</p>
 
         {{ form_start(form) }}
         <div class=\"alert alert-light\">
-            <h2>Commencez par nous dire quelles sont les dates qui vous intéressent</h2>
+            <h4>Commencez par nous dire quelles sont les dates qui vous intéressent</h2>
             <div class=\"row\">
             <div class=\"col\">
                 {{form_row(form.startDate)}}
@@ -272,8 +272,8 @@ function calculateAmount(){
                 {{form_row(form.endDate)}}
             </div>
         </div>
-    <h4>Montant du séjour : <span id=\"amount\">...</span> &euro;</h4>
-    <span id=\"days\">0</span> nuit(s) à {{ad.price}} &euro;/ nuit
+    <h4 class=\"mt-2\">Montant du séjour : <span id=\"amount\">...</span> &euro;</h4>
+    <span id=\"days\">0</span> nuit(s) à {{ad.price | number_format(2, ',', ' ')}} &euro; par nuit
 
     <h4 class=\"mt-3\">Vous avez un commentaire ?</h4>
     {{ form_row(form.comment) }}

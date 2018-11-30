@@ -69,8 +69,8 @@ class __TwigTemplate_79db1b9acb8aeb89857ee817d782ba0769634084722fb41f1f1d102ce38
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"container\">
-        <h1>Modification du mot de passe</h1>
+        echo "    <div class=\"container clearfix\">
+        <h1 class=\"my-5\">Modification du mot de passe</h1>
         ";
         // line 8
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 8, $this->source); })()), 'form_start');
@@ -79,10 +79,13 @@ class __TwigTemplate_79db1b9acb8aeb89857ee817d782ba0769634084722fb41f1f1d102ce38
         // line 9
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 9, $this->source); })()), 'widget');
         echo "
-        <button type=\"submit\" class=\"btn btn-primary\">Modifier le mot de passe</button>
+        <button type=\"submit\" class=\"btn btn-primary float-right\">
+            <i class=\"fas fa-check\"></i>
+            Modifier le mot de passe
+        </button>
         ";
-        // line 11
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 11, $this->source); })()), 'form_end');
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 14, $this->source); })()), 'form_end');
         echo "
     </div>
 ";
@@ -106,7 +109,7 @@ class __TwigTemplate_79db1b9acb8aeb89857ee817d782ba0769634084722fb41f1f1d102ce38
 
     public function getDebugInfo()
     {
-        return array (  85 => 11,  80 => 9,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  88 => 14,  80 => 9,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -116,11 +119,14 @@ class __TwigTemplate_79db1b9acb8aeb89857ee817d782ba0769634084722fb41f1f1d102ce38
 {% block title %}Modification de mot de passe{% endblock %}
 
 {% block body %}
-    <div class=\"container\">
-        <h1>Modification du mot de passe</h1>
+    <div class=\"container clearfix\">
+        <h1 class=\"my-5\">Modification du mot de passe</h1>
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button type=\"submit\" class=\"btn btn-primary\">Modifier le mot de passe</button>
+        <button type=\"submit\" class=\"btn btn-primary float-right\">
+            <i class=\"fas fa-check\"></i>
+            Modifier le mot de passe
+        </button>
         {{ form_end(form) }}
     </div>
 {% endblock %}", "account/password.html.twig", "/var/www/html/symbnb/templates/account/password.html.twig");

@@ -71,7 +71,7 @@ class __TwigTemplate_1bf0781f911d540f0fbda481ebff2a106dc64ed58bab93bffee9776aa4a
 
         // line 6
         echo "<div class=\"container\">
-    <div class=\"row align-items-center\">
+    <div class=\"row align-items-center mb-5\">
         <div class=\"col-3 text-center\">
             <img src=\"";
         // line 9
@@ -212,7 +212,7 @@ class __TwigTemplate_1bf0781f911d540f0fbda481ebff2a106dc64ed58bab93bffee9776aa4a
 
 {% block body %}
 <div class=\"container\">
-    <div class=\"row align-items-center\">
+    <div class=\"row align-items-center mb-5\">
         <div class=\"col-3 text-center\">
             <img src=\"{{user.picture}}\" class=\"avatar mb-3\" alt=\"Avatar de {{user.fullName}}\">
             <br>

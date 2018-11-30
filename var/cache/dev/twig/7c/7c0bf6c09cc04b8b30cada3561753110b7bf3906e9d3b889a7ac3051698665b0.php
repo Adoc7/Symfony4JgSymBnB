@@ -156,7 +156,7 @@ class __TwigTemplate_a0e4111eb45dd62beda14df1736c7525e0c673ae0b47118cffd39a2cb5e
 
 
 
-<h2 class=\"h1 mt-3 mb-4\">Nos propriétaires stars</h2>
+<h2 class=\"h1 my-5\">Nos propriétaires stars</h2>
   <div class=\"row\">
 
     <div class=\"col\">
@@ -293,7 +293,7 @@ class __TwigTemplate_a0e4111eb45dd62beda14df1736c7525e0c673ae0b47118cffd39a2cb5e
 
 
 
-<h2 class=\"h1 mt-3 mb-4\">Nos propriétaires stars</h2>
+<h2 class=\"h1 my-5\">Nos propriétaires stars</h2>
   <div class=\"row\">
 
     <div class=\"col\">

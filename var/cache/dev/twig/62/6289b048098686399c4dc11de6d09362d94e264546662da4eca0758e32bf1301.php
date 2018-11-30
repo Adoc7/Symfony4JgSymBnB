@@ -70,19 +70,58 @@ class __TwigTemplate_6d1427e3bc38f09d576044f4a5d4cdcffdad7310cb0f5a8816a29b16161
 
         // line 6
         echo "    <div class=\"container\">
-        <h1>Modification du profil</h1>
+        <h1 class=\"my-5\">Modification du profil</h1>
         ";
         // line 8
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 8, $this->source); })()), 'form_start');
         echo "
-        ";
-        // line 9
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 9, $this->source); })()), 'widget');
+        <div class=\"row\">
+            <div class=\"col\">
+                <div class=\"alert alert-light\">
+                    <h2 class=\"alert-heading\">Informations générales</h2>
+                    <hr>
+                    ";
+        // line 14
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 14, $this->source); })()), "firstName", array()), 'row');
         echo "
-        <button type=\"submit\" class=\"btn btn-primary\">Enregister les modifications</button>
+                    ";
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 15, $this->source); })()), "lastName", array()), 'row');
+        echo "
+                    ";
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 16, $this->source); })()), "email", array()), 'row');
+        echo "
+                    ";
+        // line 17
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 17, $this->source); })()), "picture", array()), 'row');
+        echo "
+                </div>
+            </div>
+            <div class=\"col\">
+                <div class=\"alert alert-light\">
+                    <h2 class=\"alert-heading\">Détails</h2>
+                    <hr>
+                    ";
+        // line 24
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 24, $this->source); })()), "introduction", array()), 'row');
+        echo "
+                    ";
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 25, $this->source); })()), "description", array()), 'row');
+        echo "
+                    <hr>
+                    <p>Si vous avez terminé vos modifications, vous pouvez les sauvegarder</p>
+                    <button type=\"submit\" class=\"btn btn-primary\">
+                    <i class=\"fas fa-check\"></i>
+                    Enregister les modifications
+                    </button>
+                </div>          
+            </div>
+        </div>
         ";
-        // line 11
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 11, $this->source); })()), 'form_end');
+        // line 35
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 35, $this->source); })()), 'form_end');
         echo "
     </div>
 ";
@@ -106,7 +145,7 @@ class __TwigTemplate_6d1427e3bc38f09d576044f4a5d4cdcffdad7310cb0f5a8816a29b16161
 
     public function getDebugInfo()
     {
-        return array (  85 => 11,  80 => 9,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  124 => 35,  111 => 25,  107 => 24,  97 => 17,  93 => 16,  89 => 15,  85 => 14,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -117,10 +156,34 @@ class __TwigTemplate_6d1427e3bc38f09d576044f4a5d4cdcffdad7310cb0f5a8816a29b16161
 
 {% block body %}
     <div class=\"container\">
-        <h1>Modification du profil</h1>
+        <h1 class=\"my-5\">Modification du profil</h1>
         {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button type=\"submit\" class=\"btn btn-primary\">Enregister les modifications</button>
+        <div class=\"row\">
+            <div class=\"col\">
+                <div class=\"alert alert-light\">
+                    <h2 class=\"alert-heading\">Informations générales</h2>
+                    <hr>
+                    {{form_row(form.firstName)}}
+                    {{form_row(form.lastName)}}
+                    {{form_row(form.email)}}
+                    {{form_row(form.picture)}}
+                </div>
+            </div>
+            <div class=\"col\">
+                <div class=\"alert alert-light\">
+                    <h2 class=\"alert-heading\">Détails</h2>
+                    <hr>
+                    {{form_row(form.introduction)}}
+                    {{form_row(form.description)}}
+                    <hr>
+                    <p>Si vous avez terminé vos modifications, vous pouvez les sauvegarder</p>
+                    <button type=\"submit\" class=\"btn btn-primary\">
+                    <i class=\"fas fa-check\"></i>
+                    Enregister les modifications
+                    </button>
+                </div>          
+            </div>
+        </div>
         {{ form_end(form) }}
     </div>
 {% endblock %}", "account/profile.html.twig", "/var/www/html/symbnb/templates/account/profile.html.twig");

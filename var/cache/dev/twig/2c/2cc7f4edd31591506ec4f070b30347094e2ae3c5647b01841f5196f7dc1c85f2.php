@@ -70,7 +70,7 @@ class __TwigTemplate_57f9fe48559a37c7954c19f465846302711455a895d68b5e2efaf402381
 
         // line 6
         echo "<div class=\"container\">
-    <h1 class=\"my-3\">Voici les annonces de nos hôtes</h1>
+    <h1 class=\"my-5\">Voici les annonces de nos hôtes</h1>
     <div class=\"row\">
         ";
         // line 9
@@ -142,7 +142,7 @@ class __TwigTemplate_57f9fe48559a37c7954c19f465846302711455a895d68b5e2efaf402381
 
 {% block body %}
 <div class=\"container\">
-    <h1 class=\"my-3\">Voici les annonces de nos hôtes</h1>
+    <h1 class=\"my-5\">Voici les annonces de nos hôtes</h1>
     <div class=\"row\">
         {% for ad in ads %}
            {%  include 'ad/_ad.html.twig' %}
