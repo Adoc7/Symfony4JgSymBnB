@@ -86,7 +86,7 @@ class __TwigTemplate_1f4c93c3c4b86211952caeb1a205887b3379311180eb6631b227f71a6be
                 ";
         // line 20
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new Twig_Error_Runtime('Variable "comments" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 20, $this->source); })()), "data", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
             // line 21
             echo "                <tr>
@@ -141,8 +141,10 @@ class __TwigTemplate_1f4c93c3c4b86211952caeb1a205887b3379311180eb6631b227f71a6be
         // line 40
         echo "            </tbody>
         </table>
-        
-        
+    ";
+        // line 42
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 42, $this->source); })()), "display", array(), "method"), "html", null, true);
+        echo "
     </div>
 ";
         
@@ -165,7 +167,7 @@ class __TwigTemplate_1f4c93c3c4b86211952caeb1a205887b3379311180eb6631b227f71a6be
 
     public function getDebugInfo()
     {
-        return array (  142 => 40,  130 => 34,  124 => 31,  119 => 29,  114 => 27,  109 => 25,  103 => 24,  99 => 23,  95 => 22,  92 => 21,  88 => 20,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  146 => 42,  142 => 40,  130 => 34,  124 => 31,  119 => 29,  114 => 27,  109 => 25,  103 => 24,  99 => 23,  95 => 22,  92 => 21,  88 => 20,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -189,7 +191,7 @@ class __TwigTemplate_1f4c93c3c4b86211952caeb1a205887b3379311180eb6631b227f71a6be
                 </tr>
             </thead>
             <tbody>
-                {% for comment in comments %}
+                {% for comment in pagination.data %}
                 <tr>
                     <td>{{comment.id}}</td>
                     <td>{{comment.createdAt | date('d/m/Y H:i') }}</td>
@@ -211,8 +213,7 @@ class __TwigTemplate_1f4c93c3c4b86211952caeb1a205887b3379311180eb6631b227f71a6be
                 {% endfor %}
             </tbody>
         </table>
-        
-        
+    {{ pagination.display() }}
     </div>
 {% endblock %}
 ", "admin/comment/index.html.twig", "/var/www/html/symbnb/templates/admin/comment/index.html.twig");

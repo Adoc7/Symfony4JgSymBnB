@@ -88,7 +88,7 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
             ";
         // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["bookings"]) || array_key_exists("bookings", $context) ? $context["bookings"] : (function () { throw new Twig_Error_Runtime('Variable "bookings" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 22, $this->source); })()), "data", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["booking"]) {
             // line 23
             echo "            <tr>
@@ -142,7 +142,11 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
         echo "        </tbody>
 
         </table>
-    </div>
+    ";
+        // line 43
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 43, $this->source); })()), "display", array(), "method"), "html", null, true);
+        echo "
+</div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -164,7 +168,7 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
 
     public function getDebugInfo()
     {
-        return array (  142 => 40,  130 => 34,  124 => 31,  119 => 29,  115 => 28,  111 => 27,  105 => 26,  101 => 25,  97 => 24,  94 => 23,  90 => 22,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  147 => 43,  142 => 40,  130 => 34,  124 => 31,  119 => 29,  115 => 28,  111 => 27,  105 => 26,  101 => 25,  97 => 24,  94 => 23,  90 => 22,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -190,7 +194,7 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
         </thead>
 
         <tbody>
-            {% for booking in bookings %}
+            {% for booking in pagination.data %}
             <tr>
                 <td>{{booking.Id}}</td>
                 <td>{{booking.createdAt | date('d,m,Y H:i')}}</td>
@@ -211,8 +215,10 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
         </tbody>
 
         </table>
-    </div>
+    {{ pagination.display() }}
+</div>
 {% endblock %}
+
 ", "admin/booking/index.html.twig", "/var/www/html/symbnb/templates/admin/booking/index.html.twig");
     }
 }

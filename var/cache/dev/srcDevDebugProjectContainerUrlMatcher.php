@@ -75,9 +75,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/ads/new' => array(array('_route' => 'ads_create', '_controller' => 'App\\Controller\\AdController::create'), null, null, null),
                     '/admin/login' => array(array('_route' => 'admin_account_login', '_controller' => 'App\\Controller\\AdminAccountController::login'), null, null, null),
                     '/admin/logout' => array(array('_route' => 'admin_account_logout', '_controller' => 'App\\Controller\\AdminAccountController::logout'), null, null, null),
-                    '/admin/ads' => array(array('_route' => 'admin_ads_index', '_controller' => 'App\\Controller\\AdminAdController::index'), null, null, null),
-                    '/admin/bookings' => array(array('_route' => 'admin_booking_index', '_controller' => 'App\\Controller\\AdminBookingController::index'), null, null, null),
-                    '/admin/comments' => array(array('_route' => 'admin_comment_index', '_controller' => 'App\\Controller\\AdminCommentController::index'), null, null, null),
                     '/hello' => array(array('_route' => 'hello_base', '_controller' => 'App\\Controller\\HomeController::hello'), null, null, null),
                     '/' => array(array('_route' => 'homepage', '_controller' => 'App\\Controller\\HomeController::home'), null, null, null),
                     '/_profiler/' => array(array('_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'), null, null, null),
@@ -120,40 +117,49 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             .'|(*:66)'
                         .')'
                         .'|min/(?'
-                            .'|ads/([^/]++)/(?'
-                                .'|edit(*:101)'
-                                .'|deete(*:114)'
+                            .'|ads(?'
+                                .'|(?:/(\\d+))?(*:98)'
+                                .'|/([^/]++)/(?'
+                                    .'|edit(*:122)'
+                                    .'|deete(*:135)'
+                                .')'
                             .')'
                             .'|booking(?'
-                                .'|s/([^/]++)/edit(*:148)'
-                                .'|/([^/]++)/delete(*:172)'
+                                .'|s(?'
+                                    .'|(?:/(\\d+))?(*:170)'
+                                    .'|/([^/]++)/edit(*:192)'
+                                .')'
+                                .'|/([^/]++)/delete(*:217)'
                             .')'
-                            .'|comments/([^/]++)/(?'
-                                .'|edit(*:206)'
-                                .'|delete(*:220)'
+                            .'|comments(?'
+                                .'|(?:/(\\d+))?(*:248)'
+                                .'|/([^/]++)/(?'
+                                    .'|edit(*:273)'
+                                    .'|delete(*:287)'
+                                .')'
                             .')'
                         .')'
                     .')'
-                    .'|/booking/([^/]++)(*:248)'
+                    .'|/booking/([^/]++)(*:316)'
                     .'|/hello(?'
-                        .'|/([^/]++)/age(?:/([^/]++))?(*:292)'
-                        .'|(?:/([^/]++))?(*:314)'
-                        .'|(?:/([^/]++)(?:/([^/]++))?)?(*:350)'
+                        .'|/([^/]++)/age(?:/([^/]++))?(*:360)'
+                        .'|(?:/([^/]++))?(*:382)'
+                        .'|(?:/([^/]++)(?:/([^/]++))?)?(*:418)'
                     .')'
-                    .'|/user/([^/]++)(*:373)'
+                    .'|/user/([^/]++)(*:441)'
                     .'|/_(?'
-                        .'|error/(\\d+)(?:\\.([^/]++))?(*:412)'
-                        .'|wdt/([^/]++)(*:432)'
+                        .'|error/(\\d+)(?:\\.([^/]++))?(*:480)'
+                        .'|wdt/([^/]++)(*:500)'
                         .'|profiler/([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:478)'
-                                .'|router(*:492)'
+                                .'|search/results(*:546)'
+                                .'|router(*:560)'
                                 .'|exception(?'
-                                    .'|(*:512)'
-                                    .'|\\.css(*:525)'
+                                    .'|(*:580)'
+                                    .'|\\.css(*:593)'
                                 .')'
                             .')'
-                            .'|(*:535)'
+                            .'|(*:603)'
                         .')'
                     .')'
                 .')$}sD',
@@ -168,24 +174,27 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             47 => array(array('_route' => 'ads_delete', '_controller' => 'App\\Controller\\AdController::delete'), array('slug'), null, null),
                             58 => array(array('_route' => 'booking_create', '_controller' => 'App\\Controller\\BookingController::book'), array('slug'), null, null),
                             66 => array(array('_route' => 'ads_show', '_controller' => 'App\\Controller\\AdController::show'), array('slug'), null, null),
-                            101 => array(array('_route' => 'admin_ads_edit', '_controller' => 'App\\Controller\\AdminAdController::edit'), array('id'), null, null),
-                            114 => array(array('_route' => 'admin_ads_delete', '_controller' => 'App\\Controller\\AdminAdController::delete'), array('id'), null, null),
-                            148 => array(array('_route' => 'admin_booking_edit', '_controller' => 'App\\Controller\\AdminBookingController::edit'), array('id'), null, null),
-                            172 => array(array('_route' => 'admin_booking_delete', '_controller' => 'App\\Controller\\AdminBookingController::delete'), array('id'), null, null),
-                            206 => array(array('_route' => 'admin_comment_edit', '_controller' => 'App\\Controller\\AdminCommentController::edit'), array('id'), null, null),
-                            220 => array(array('_route' => 'admin_comment_delete', '_controller' => 'App\\Controller\\AdminCommentController::delete'), array('id'), null, null),
-                            248 => array(array('_route' => 'booking_show', '_controller' => 'App\\Controller\\BookingController::show'), array('id'), null, null),
-                            292 => array(array('_route' => 'hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
-                            314 => array(array('_route' => 'hello_prenom', 'prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom'), null, null),
-                            350 => array(array('_route' => 'app_home_hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
-                            373 => array(array('_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::index'), array('slug'), null, null),
-                            412 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
-                            432 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
-                            478 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
-                            492 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
-                            512 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
-                            525 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
-                            535 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
+                            98 => array(array('_route' => 'admin_ads_index', 'page' => '1', '_controller' => 'App\\Controller\\AdminAdController::index'), array('page'), null, null),
+                            122 => array(array('_route' => 'admin_ads_edit', '_controller' => 'App\\Controller\\AdminAdController::edit'), array('id'), null, null),
+                            135 => array(array('_route' => 'admin_ads_delete', '_controller' => 'App\\Controller\\AdminAdController::delete'), array('id'), null, null),
+                            170 => array(array('_route' => 'admin_booking_index', 'page' => '1', '_controller' => 'App\\Controller\\AdminBookingController::index'), array('page'), null, null),
+                            192 => array(array('_route' => 'admin_booking_edit', '_controller' => 'App\\Controller\\AdminBookingController::edit'), array('id'), null, null),
+                            217 => array(array('_route' => 'admin_booking_delete', '_controller' => 'App\\Controller\\AdminBookingController::delete'), array('id'), null, null),
+                            248 => array(array('_route' => 'admin_comment_index', 'page' => '1', '_controller' => 'App\\Controller\\AdminCommentController::index'), array('page'), null, null),
+                            273 => array(array('_route' => 'admin_comment_edit', '_controller' => 'App\\Controller\\AdminCommentController::edit'), array('id'), null, null),
+                            287 => array(array('_route' => 'admin_comment_delete', '_controller' => 'App\\Controller\\AdminCommentController::delete'), array('id'), null, null),
+                            316 => array(array('_route' => 'booking_show', '_controller' => 'App\\Controller\\BookingController::show'), array('id'), null, null),
+                            360 => array(array('_route' => 'hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
+                            382 => array(array('_route' => 'hello_prenom', 'prenom' => '', '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom'), null, null),
+                            418 => array(array('_route' => 'app_home_hello', 'prenom' => '', 'age' => 0, '_controller' => 'App\\Controller\\HomeController::hello'), array('prenom', 'age'), null, null),
+                            441 => array(array('_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::index'), array('slug'), null, null),
+                            480 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
+                            500 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
+                            546 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
+                            560 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
+                            580 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
+                            593 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
+                            603 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -211,7 +220,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (535 === $m) {
+                if (603 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

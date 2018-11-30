@@ -86,7 +86,7 @@ class __TwigTemplate_e2b441fa1ab514e5cea5523252e6432231cb7dd1c096c8e487357f35630
             ";
         // line 20
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["ads"]) || array_key_exists("ads", $context) ? $context["ads"] : (function () { throw new Twig_Error_Runtime('Variable "ads" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 20, $this->source); })()), "data", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["ad"]) {
             // line 21
             echo "            <tr>
@@ -143,9 +143,12 @@ class __TwigTemplate_e2b441fa1ab514e5cea5523252e6432231cb7dd1c096c8e487357f35630
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ad'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 43
-        echo "        </tbody>
-    
+        echo "        </tbody>  
     </table>
+    ";
+        // line 45
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 45, $this->source); })()), "display", array(), "method"), "html", null, true);
+        echo "
 </div>
 ";
         
@@ -168,7 +171,7 @@ class __TwigTemplate_e2b441fa1ab514e5cea5523252e6432231cb7dd1c096c8e487357f35630
 
     public function getDebugInfo()
     {
-        return array (  146 => 43,  136 => 39,  131 => 37,  125 => 34,  119 => 31,  113 => 28,  108 => 26,  104 => 25,  99 => 23,  95 => 22,  92 => 21,  88 => 20,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  150 => 45,  146 => 43,  136 => 39,  131 => 37,  125 => 34,  119 => 31,  113 => 28,  108 => 26,  104 => 25,  99 => 23,  95 => 22,  92 => 21,  88 => 20,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -192,7 +195,7 @@ class __TwigTemplate_e2b441fa1ab514e5cea5523252e6432231cb7dd1c096c8e487357f35630
             </tr>
         </thead>
         <tbody>
-            {% for ad in ads %}
+            {% for ad in pagination.data %}
             <tr>
                 <td>{{ad.id}}</td>
                 <td>{{ad.title}}</td>
@@ -215,9 +218,9 @@ class __TwigTemplate_e2b441fa1ab514e5cea5523252e6432231cb7dd1c096c8e487357f35630
                 </td>
             </tr>
             {% endfor %}
-        </tbody>
-    
+        </tbody>  
     </table>
+    {{ pagination.display() }}
 </div>
 {% endblock %}
 ", "admin/ad/index.html.twig", "/var/www/html/symbnb/templates/admin/ad/index.html.twig");
