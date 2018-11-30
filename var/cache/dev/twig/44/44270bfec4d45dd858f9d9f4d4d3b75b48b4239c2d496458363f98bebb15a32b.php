@@ -78,42 +78,57 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
                 <th>Date</th>
                 <th>Visiteur</th>
                 <th>Annonce</th>
-                
+                <th>Durée</th>
+                <th>Montant</th>               
                 <th></th>
             </tr>
         </thead>
 
         <tbody>
             ";
-        // line 21
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["bookings"]) || array_key_exists("bookings", $context) ? $context["bookings"] : (function () { throw new Twig_Error_Runtime('Variable "bookings" does not exist.', 21, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["bookings"]) || array_key_exists("bookings", $context) ? $context["bookings"] : (function () { throw new Twig_Error_Runtime('Variable "bookings" does not exist.', 22, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["booking"]) {
-            // line 22
+            // line 23
             echo "            <tr>
                 <td>";
-            // line 23
+            // line 24
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "Id", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 24
+            // line 25
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "createdAt", array()), "d,m,Y H:i"), "html", null, true);
             echo "</td>
                 <td><img src=\"";
-            // line 25
+            // line 26
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["booking"], "booker", array()), "picture", array()), "html", null, true);
             echo "\" alt=\"\" class=\"avatar avatar-micro\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["booking"], "booker", array()), "fullName", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 26
+            // line 27
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["booking"], "ad", array()), "title", array()), "html", null, true);
             echo "</td>
+                <td>";
+            // line 28
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "duration", array()), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 29
+            echo twig_escape_filter($this->env, twig_number_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["booking"], "amount", array()), 2, ",", " "), "html", null, true);
+            echo " &euro;</td>
                 <td>
-                    <a href=\"#\" class=\"btn btn-primary\">
+                    <a href=\"";
+            // line 31
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_booking_edit", array("id" => twig_get_attribute($this->env, $this->source, $context["booking"], "id", array()))), "html", null, true);
+            echo "\" class=\"btn btn-primary\">
                         <i class=\"fas fa-pen\"></i>
                     </a>
-                    <a href=\"#\" class=\"btn btn-danger\">
+                    <a href=\"";
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_booking_delete", array("id" => twig_get_attribute($this->env, $this->source, $context["booking"], "id", array()))), "html", null, true);
+            echo "\" class=\"btn btn-danger\">
                         <i class=\"fas fa-trash\"></i>
                     </a>
                 </td>
@@ -123,7 +138,7 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['booking'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 40
         echo "        </tbody>
 
         </table>
@@ -149,7 +164,7 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
 
     public function getDebugInfo()
     {
-        return array (  127 => 37,  110 => 26,  104 => 25,  100 => 24,  96 => 23,  93 => 22,  89 => 21,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  142 => 40,  130 => 34,  124 => 31,  119 => 29,  115 => 28,  111 => 27,  105 => 26,  101 => 25,  97 => 24,  94 => 23,  90 => 22,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -168,7 +183,8 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
                 <th>Date</th>
                 <th>Visiteur</th>
                 <th>Annonce</th>
-                
+                <th>Durée</th>
+                <th>Montant</th>               
                 <th></th>
             </tr>
         </thead>
@@ -180,11 +196,13 @@ class __TwigTemplate_3bee76e6d8692888516267e1a5932b9ebd722dcff25719dc9ac1baa63d3
                 <td>{{booking.createdAt | date('d,m,Y H:i')}}</td>
                 <td><img src=\"{{booking.booker.picture}}\" alt=\"\" class=\"avatar avatar-micro\">{{booking.booker.fullName}}</td>
                 <td>{{booking.ad.title}}</td>
+                <td>{{booking.duration}}</td>
+                <td>{{booking.amount | number_format(2, \",\", \" \")}} &euro;</td>
                 <td>
-                    <a href=\"#\" class=\"btn btn-primary\">
+                    <a href=\"{{ path('admin_booking_edit', {'id': booking.id}) }}\" class=\"btn btn-primary\">
                         <i class=\"fas fa-pen\"></i>
                     </a>
-                    <a href=\"#\" class=\"btn btn-danger\">
+                    <a href=\"{{ path('admin_booking_delete', {'id': booking.id}) }}\" class=\"btn btn-danger\">
                         <i class=\"fas fa-trash\"></i>
                     </a>
                 </td>

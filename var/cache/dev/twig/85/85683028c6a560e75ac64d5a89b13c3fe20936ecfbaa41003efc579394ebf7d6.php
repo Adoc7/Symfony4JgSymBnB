@@ -52,7 +52,10 @@ class __TwigTemplate_297da24e583185847bcd25e4f1654c22ed3553ee4a1927beccb36e2ba9b
                         </a>
                     </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">
+                        <a class=\"nav-link\" href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_booking_index");
+        echo "\">
                             <i class=\"fas fa-folder\"></i>
                             Réservations
                         </a>
@@ -173,7 +176,7 @@ class __TwigTemplate_297da24e583185847bcd25e4f1654c22ed3553ee4a1927beccb36e2ba9b
 
     public function getDebugInfo()
     {
-        return array (  148 => 71,  139 => 69,  135 => 68,  131 => 67,  128 => 66,  124 => 65,  118 => 61,  108 => 54,  102 => 51,  98 => 50,  94 => 49,  90 => 47,  88 => 46,  80 => 41,  63 => 27,  48 => 15,  32 => 2,  29 => 1,);
+        return array (  151 => 71,  142 => 69,  138 => 68,  134 => 67,  131 => 66,  127 => 65,  121 => 61,  111 => 54,  105 => 51,  101 => 50,  97 => 49,  93 => 47,  91 => 46,  83 => 41,  66 => 27,  57 => 21,  48 => 15,  32 => 2,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -198,7 +201,7 @@ class __TwigTemplate_297da24e583185847bcd25e4f1654c22ed3553ee4a1927beccb36e2ba9b
                         </a>
                     </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">
+                        <a class=\"nav-link\" href=\"{{ path('admin_booking_index') }}\">
                             <i class=\"fas fa-folder\"></i>
                             Réservations
                         </a>

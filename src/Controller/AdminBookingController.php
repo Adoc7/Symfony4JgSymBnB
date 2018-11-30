@@ -44,7 +44,7 @@ class AdminBookingController extends AbstractController
                 'success',
                 "La réservation n°{$booking->getId()} a bien été modifiée"
             );
-            return $this->redirecToRoute("admin_booking_index")
+            return $this->redirectToRoute("admin_booking_index");
         }
         
         return $this->render('admin/booking/edit.html.twig',[
@@ -63,7 +63,7 @@ class AdminBookingController extends AbstractController
         $manager->remove($booking);
         $manager->flush();
 
-        $this->adFlash(
+        $this->addFlash(
             'success',
             "La réservation a bien été supprimée"
         );
